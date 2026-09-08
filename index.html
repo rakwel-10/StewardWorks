@@ -274,20 +274,28 @@ a{ color:inherit; }
 .pk-note{ margin:0; font-size:.95rem; font-weight:300; max-width:52ch; }
 
 /* ── 04 · statement band, pale blue ──────── */
-/* ── creed — the tagline, given a section of its own ── */
-.creed{
+/* ── partner companies ── */
+.partners{
   background:transparent; border-block:0;
   padding-block:clamp(3.5rem,3vw,6rem); text-align:center;
 }
-.creed-line{
-  font-family:var(--serif); font-weight:600;
-  font-size:clamp(2.5rem,1.5rem + 4.6vw,5.2rem);
-  line-height:1.04; letter-spacing:-.024em; margin:0;
-  display:flex; flex-wrap:wrap; justify-content:center; gap:0 .42em;
+.partners-k{ margin:0 0 clamp(1.5rem,3vw,2.25rem); }
+.partner-row{
+  display:flex; flex-wrap:wrap; justify-content:center; align-items:center;
+  gap:clamp(1.5rem,4vw,3.25rem); list-style:none; margin:0; padding:0;
 }
-.c-a{ color:var(--sage-ink); }
-.c-s{ color:var(--ochre-ink); }
-.c-t{ color:var(--slate); }
+/* real logos go here: swap each slot for <img src="..." alt="Name"> */
+.partner-row img{
+  display:block; width:auto; height:clamp(32px,3.6vw,46px);
+  opacity:.72; filter:grayscale(1);
+}
+.partner-slot{
+  display:flex; align-items:center; justify-content:center;
+  width:clamp(112px,13vw,150px); height:clamp(52px,6vw,66px);
+  border:1px dashed var(--slate-20); border-radius:4px;
+  font-size:.58rem; font-weight:700; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--taupe-70);
+}
 
 /* ── what you keep — photograph as the ground, light type over it ── */
 .statement{
@@ -507,14 +515,17 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
   </div>
 </section>
 
-<!-- ══ 02 · CREED ════════════════════════════ -->
-<section class="creed">
+<!-- ══ 02 · PARTNER COMPANIES ════════════════ -->
+<section class="partners" id="partners">
   <div class="wrap">
-    <p class="creed-line">
-      <span class="c-a">Amplify.</span>
-      <span class="c-s">Sustain.</span>
-      <span class="c-t">Transform.</span>
-    </p>
+    <p class="label partners-k">Organizations we partner with</p>
+    <ul class="partner-row">
+      <li><span class="partner-slot">Logo 1</span></li>
+      <li><span class="partner-slot">Logo 2</span></li>
+      <li><span class="partner-slot">Logo 3</span></li>
+      <li><span class="partner-slot">Logo 4</span></li>
+      <li><span class="partner-slot">Logo 5</span></li>
+    </ul>
   </div>
 </section>
 
