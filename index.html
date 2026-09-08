@@ -400,24 +400,29 @@ a{ color:inherit; }
 .contact{ list-style:none; margin:clamp(2rem,4vw,2.75rem) 0 0; padding:0; }
 .contact li{ border-bottom:1px solid var(--sand-14); padding:1rem 0; }
 
-/* ── enquiry form ────────────────────────── */
-.form{ display:grid; gap:1.05rem; }
+/* ── enquiry form — a white panel on the slate section, so
+   everything inside it is themed for a light ground ── */
+.form{
+  display:grid; gap:1.05rem;
+  background:var(--white); border-radius:6px;
+  padding:clamp(1.4rem,3vw,2rem);
+}
 .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:1.05rem; }
 .field{ display:block; min-width:0; }
 .field > span{
   display:block; font-size:.69rem; font-weight:600; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--sage-lite); margin-bottom:.45rem;
+  text-transform:uppercase; color:var(--sage-ink); margin-bottom:.45rem;
 }
 .field input,.field select,.field textarea{
   width:100%; display:block;
   font-family:var(--sans); font-size:.98rem; font-weight:300; line-height:1.5;
-  color:var(--sand); background:color-mix(in srgb, var(--sand) 8%, transparent);
-  border:1px solid var(--sand-24); border-radius:4px; padding:.8rem .9rem;
+  color:var(--taupe); background:var(--sand);
+  border:1px solid var(--hair); border-radius:4px; padding:.8rem .9rem;
 }
 .field textarea{ min-height:132px; resize:vertical; }
-.field input::placeholder,.field textarea::placeholder{ color:color-mix(in srgb, var(--sand) 45%, transparent); }
+.field input::placeholder,.field textarea::placeholder{ color:var(--taupe-70); }
 .field input:focus,.field select:focus,.field textarea:focus{
-  outline:2px solid var(--sage-lite); outline-offset:1px; border-color:transparent;
+  outline:2px solid var(--sage-ink); outline-offset:1px; border-color:transparent;
 }
 /* native dropdowns paint their list with the OS, so set both explicitly */
 .field select option{ color:var(--slate); background:var(--white); }
@@ -935,7 +940,7 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
           <textarea name="message" rows="5" placeholder="A sentence or two about the program, the timeline, and what&#8217;s getting in the way." required></textarea>
         </label>
 
-        <button class="btn btn-ondark" type="submit">Start assessment today</button>
+        <button class="btn" type="submit">Start assessment today</button>
       </form>
     </div>
   </div>
