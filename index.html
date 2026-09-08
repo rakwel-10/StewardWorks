@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StewardWorks Consulting — Amplify · Sustain · Transform</title>
+<meta name="description" content="StewardWorks Consulting helps nonprofit and mission-driven organizations build capacity, sustainability, and effectiveness. Program development, project management, operations and administrative support, and process improvement by Jaina Reed Thompson.">
+<meta name="theme-color" content="#F9F8F3">
+<meta property="og:type" content="website">
+<meta property="og:title" content="StewardWorks Consulting">
+<meta property="og:description" content="Capacity, sustainability, and impact for nonprofit and mission-driven organizations.">
+<meta property="og:image" content="assets/image/bg-1.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%232C3E4C'/%3E%3Cpath d='M8 20h16M8 20v-6M24 20v-6' stroke='%236B8E6A' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────────
+   StewardWorks Consulting
+   Palette is the five brand colours plus white;
+   every other tone is a color-mix() of them.
+   Client-directed: larger headings, boxed service
+   cards, white surfaces, header on the hero.
+   No animation, no JavaScript — static page.
+   ───────────────────────────────────────────── */
+
+:root{
+  /* ── the five brand colours. Nothing on this page sits outside them. ── */
+  --slate: #2C3E4C;   /* Deep Slate   — primary headers & contrast blocks */
+  --sage:  #6B8E6A;   /* Sage Green   — icons, accents & subheadings      */
+  --ochre: #C88A4B;   /* Warm Ochre   — CTA buttons                       */
+  --sand:  #F9F8F3;   /* Warm Sand    — main background                   */
+  --taupe: #4A4744;   /* Taupe        — body text & subtle borders        */
+  --white: #FFFFFF;   /* client-directed, sits outside the five: section
+                         and card surfaces, against the sand page ground */
+
+  /* Every supporting tone below is a mix of the five above — no new hues.
+     Ratios noted where small text has to clear WCAG AA (4.5:1). */
+  --sage-ink:   color-mix(in srgb, var(--sage)  60%, var(--taupe));  /* 4.9:1 on sand  */
+  --sage-lite:  color-mix(in srgb, var(--sage)  60%, var(--sand));   /* 5.2:1 on slate */
+  --ochre-ink:  color-mix(in srgb, var(--ochre) 45%, var(--taupe));  /* 4.9:1 on sand  */
+  --slate-tint: color-mix(in srgb, var(--slate) 14%, var(--sand));   /* light panels   */
+  --sand-2:     color-mix(in srgb, var(--taupe)  5%, var(--sand));   /* alt. ground    */
+  --hair:       color-mix(in srgb, var(--taupe) 16%, transparent);   /* subtle borders */
+  --slate-20:   color-mix(in srgb, var(--slate) 20%, transparent);
+  --taupe-70:   color-mix(in srgb, var(--taupe) 70%, transparent);
+  --sand-86:    color-mix(in srgb, var(--sand)  86%, transparent);
+  --sand-24:    color-mix(in srgb, var(--sand)  24%, transparent);
+  --sand-14:    color-mix(in srgb, var(--sand)  14%, transparent);
+
+  --serif: "Cormorant Garamond", Garamond, Georgia, "Times New Roman", serif;
+  --sans:  "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --pad: clamp(1.25rem, 5vw, 5rem);
+  --max: 1180px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+
+body{
+  margin:0; background:var(--sand); color:var(--taupe);
+  font-family:var(--sans); font-weight:300;
+  font-size:clamp(1rem,.97rem + .18vw,1.06rem);
+  line-height:1.72; -webkit-font-smoothing:antialiased;
+}
+img,svg{ max-width:100%; }
+a{ color:inherit; }
+
+/* ── shared ──────────────────────────────── */
+.wrap{ width:100%; max-width:var(--max); margin-inline:auto; padding-inline:var(--pad); }
+.band{ padding-block:clamp(4rem,7.5vw,7rem); background:var(--white); }
+.dark{ background:var(--slate); color:var(--sand-86); }
+/* closing CTA — bg-3 under a near-opaque slate overlay, for warmth only */
+#contact{
+  background-color:var(--slate);
+  background-image:linear-gradient(rgba(44,62,76,.90), rgba(44,62,76,.95)), url("assets/image/bg-3.jpg");
+  background-size:cover; background-position:center; background-repeat:no-repeat;
+}
+
+.label{
+  font-size:.71rem; font-weight:600; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--sage-ink);
+}
+.sec{ margin-bottom:clamp(1.75rem,3.5vw,2.5rem); }
+.dark .label{ color:var(--sage-lite); }
+
+.h2{
+  font-family:var(--serif); font-weight:500; color:var(--slate);
+  font-size:clamp(2.4rem,1.7rem + 2.9vw,3.9rem);
+  line-height:1.03; letter-spacing:-.018em; margin:0 0 1.2rem; text-wrap:balance;
+}
+.dark .h2{ color:var(--sand); }
+.lede{
+  font-size:clamp(1.06rem,1rem + .4vw,1.22rem); font-weight:300;
+  line-height:1.66; color:var(--taupe); max-width:54ch; margin:0;
+}
+.dark .lede{ color:var(--sand-86); }
+.gap{ margin-bottom:clamp(2.25rem,4.5vw,3.25rem); }
+
+/* ── header, sitting on the hero ─────────── */
+.nav{ position:absolute; top:0; left:0; right:0; z-index:60; }
+.nav .wrap{ max-width:none; }
+.nav-in{
+  display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
+  min-height:84px; border-bottom:1px solid var(--sand-24);
+}
+/* white transparent lockup — works on the tinted hero and the slate footer */
+.mark{ display:inline-flex; align-items:center; gap:.72rem; line-height:1; text-decoration:none; }
+.mark img{ display:block; width:auto; height:clamp(36px,4.2vw,48px); }
+.mark-text{ display:flex; flex-direction:column; gap:.2rem; }
+.mark-text strong{
+  font-family:var(--serif); font-weight:600; color:var(--sand);
+  font-size:clamp(1.02rem,1.5vw,1.28rem); letter-spacing:-.012em; line-height:1;
+}
+.mark-text em{
+  font-style:normal; font-size:.58rem; font-weight:600; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--sage-lite); line-height:1;
+}
+.nav-links{ display:flex; gap:2rem; list-style:none; margin:0; padding:0; }
+.nav-links a{
+  font-size:.72rem; font-weight:600; letter-spacing:.13em; text-transform:uppercase;
+  text-decoration:none; color:var(--sand-86); padding-block:.4rem;
+  border-bottom:1px solid transparent;
+}
+.nav-links a:hover{ color:var(--sand); border-bottom-color:var(--sage-lite); }
+
+/* ── buttons ─────────────────────────────── */
+.btn{
+  display:inline-flex; align-items:center; gap:.6rem;
+  font-size:.75rem; font-weight:600; letter-spacing:.12em;
+  text-transform:uppercase; text-decoration:none;
+  padding:.9rem 1.5rem; border-radius:4px; white-space:nowrap;
+  background:var(--ochre); color:var(--slate); border:1px solid var(--ochre);
+}
+.btn:hover{ background:var(--slate); border-color:var(--slate); color:var(--sand); }
+.btn-onimg{ background:transparent; color:var(--sand); border-color:var(--sand-86); }
+.btn-onimg:hover{ background:var(--sand); border-color:var(--sand); color:var(--slate); }
+.btn-sm{ padding:.7rem 1.2rem; font-size:.7rem; }
+.btn-ondark:hover{ background:var(--sand); border-color:var(--sand); color:var(--slate); }
+.btn-row{ display:flex; flex-wrap:wrap; gap:.8rem; }
+
+.tlink{
+  display:inline-flex; align-items:center; gap:.45rem;
+  font-size:.73rem; font-weight:700; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--sage-ink); text-decoration:none;
+  border-bottom:1px solid color-mix(in srgb,var(--sage) 45%,transparent);
+  padding-bottom:.2rem;
+}
+.tlink:hover{ color:var(--slate); border-bottom-color:var(--slate); }
+
+/* ── 01 · hero ───────────────────────────── */
+.hero{
+  position:relative; display:flex; align-items:center;
+  min-height:clamp(760px,100vh,1120px); background:var(--slate); overflow:hidden;
+}
+.hero-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; }
+.hero-veil{
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(44,62,76,.84) 0%, rgba(44,62,76,.66) 34%, rgba(44,62,76,.94) 100%);
+}
+.hero-in{ position:relative; padding-block:clamp(3rem,7vw,5.5rem); width:100%; text-align:center; }
+.hero-tag{ margin:0 0 1.4rem; color:var(--sage-lite); }
+.hero-h1{
+  font-family:var(--serif); font-weight:600; color:var(--sand);
+  font-size:clamp(3.1rem,2rem + 5.4vw,6rem);
+  line-height:1; letter-spacing:-.025em; margin:0 auto 1.5rem;
+  max-width:19ch; text-wrap:balance;
+}
+.hero-h1 i{ font-style:italic; font-weight:400; color:var(--sage-lite); }
+.hero-lede{
+  font-size:clamp(1.08rem,1rem + .45vw,1.28rem); font-weight:300;
+  line-height:1.62; color:var(--sand-86); max-width:56ch; margin:0 auto;
+}
+.hero-cta{ display:flex; flex-wrap:wrap; justify-content:center; gap:.8rem; margin-top:2.3rem; }
+
+/* ── 02 · why organizations call ─────────── */
+.intro{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(1.5rem,4vw,4rem); align-items:start; }
+.intro-body p{ margin:0 0 1.15rem; }
+.intro-body p:last-child{ margin-bottom:0; }
+.probs{
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(1.5rem,3.5vw,3rem); margin-top:clamp(2.5rem,5vw,3.75rem);
+}
+.prob{ padding-top:.25rem; }
+.prob-h{
+  font-family:var(--serif); font-weight:600; color:var(--slate);
+  font-size:clamp(1.5rem,1.35rem + .5vw,1.8rem);
+  letter-spacing:-.012em; margin:.55rem 0; line-height:1.12;
+}
+.prob-p{ margin:0; font-size:.95rem; font-weight:300; line-height:1.64; }
+
+/* ── 03 · expertise cards, 2 × 2 ─────────── */
+.cards{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(1.25rem,2.5vw,2rem); }
+.card{
+  display:flex; flex-direction:column;
+  background:var(--sand); border:1px solid var(--hair); border-radius:6px; overflow:hidden;
+}
+.card-art{ display:block; background:var(--slate-tint); border-bottom:1px solid var(--slate-20); }
+/* 16:9 thumbnail, capped so it stays a strip on wide cards */
+.card-art img{ display:block; width:100%; height:auto; aspect-ratio:16/9; max-height:190px; object-fit:cover; }
+.card-body{ background:var(--white); padding:clamp(1.4rem,2.6vw,1.9rem); display:flex; flex-direction:column; flex:1; }
+.card-h{
+  font-family:var(--serif); font-weight:600; color:var(--slate);
+  font-size:clamp(1.55rem,1.35rem + .7vw,1.95rem);
+  line-height:1.1; letter-spacing:-.02em; margin:.75rem 0 .7rem; text-wrap:balance;
+}
+.card-p{ margin:0 0 1.2rem; font-size:.97rem; font-weight:300; line-height:1.65; }
+.spec-k{ display:block; margin-bottom:.55rem; }
+.spec{ list-style:none; margin:0 0 1.4rem; padding:0; flex:1; }
+.spec li{
+  position:relative; padding-left:1.3rem; padding-block:.4rem;
+  font-size:.9rem; font-weight:400; line-height:1.5; color:var(--taupe);
+}
+.spec li::before{ content:"—"; position:absolute; left:0; color:var(--sage); }
+.card .tlink{ align-self:flex-start; }
+
+.also{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(1.5rem,3.5vw,3rem); margin-top:clamp(2.5rem,5vw,3.5rem); }
+.also-i{ padding-top:.25rem; }
+.also-h{
+  font-family:var(--serif); font-weight:600; color:var(--slate);
+  font-size:1.5rem; letter-spacing:-.015em; margin:.55rem 0 .5rem; line-height:1.12;
+}
+.also-p{ margin:0; font-size:.95rem; font-weight:300; line-height:1.62; }
+
+/* tagline, coloured like the logo */
+.t-a{ color:var(--sage-lite); }
+.t-s{ color:var(--ochre); }
+.t-t{ color:var(--sand); }
+
+/* ── packages ────────────────────────────── */
+.pks{
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(1.25rem,2.5vw,1.75rem); margin-top:clamp(2rem,4vw,3rem);
+}
+/* each package carries one brand colour: sage, ochre, slate */
+.pk{
+  --pc:var(--sage); --pc-ink:var(--sage-ink);
+  display:flex; flex-direction:column;
+  background:var(--sand); border:1px solid var(--hair); border-radius:6px; overflow:hidden;
+  border-top:4px solid var(--pc);
+}
+.pk-b{ --pc:var(--ochre); --pc-ink:var(--ochre-ink); }
+.pk-c{ --pc:var(--slate); --pc-ink:var(--slate); }
+.pk-head{
+  background:var(--white);
+  border-bottom:1px solid color-mix(in srgb, var(--pc) 32%, transparent);
+  padding:clamp(1.3rem,2.5vw,1.7rem);
+}
+.pk-head .label{ color:var(--pc-ink); }
+.pk-list li::before{ color:var(--pc); }
+.pk-n{
+  font-family:var(--serif); font-weight:600; color:var(--slate);
+  font-size:clamp(1.5rem,1.3rem + .6vw,1.85rem);
+  letter-spacing:-.018em; margin:.5rem 0 .6rem; line-height:1.08;
+}
+.pk-dur{ display:block; font-size:.74rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--slate); margin-bottom:.35rem; }
+.pk-price{ font-family:var(--serif); font-weight:600; color:var(--pc-ink); font-size:1.55rem; letter-spacing:-.012em; line-height:1.1; }
+.pk-body{ background:var(--white); padding:clamp(1.3rem,2.5vw,1.7rem); flex:1; }
+.pk-list{ list-style:none; margin:0; padding:0; }
+.pk-list li{
+  position:relative; padding-left:1.3rem; padding-block:.45rem;
+  font-size:.92rem; font-weight:400; line-height:1.5; color:var(--taupe);
+}
+.pk-list li::before{ content:"—"; position:absolute; left:0; color:var(--sage); }
+.pk-list b{ display:block; font-weight:700; color:var(--slate); font-size:.86rem; letter-spacing:.01em; margin-top:.1rem; }
+.pk-foot{
+  display:flex; flex-wrap:wrap; align-items:center; gap:1rem 1.75rem;
+  margin-top:clamp(2rem,4vw,2.75rem); padding-top:1.6rem; border-top:1px solid var(--hair);
+}
+.pk-note{ margin:0; font-size:.95rem; font-weight:300; max-width:52ch; }
+
+/* ── 04 · statement band, pale blue ──────── */
+/* ── creed — the tagline, given a section of its own ── */
+.creed{
+  background:transparent; border-block:0;
+  padding-block:clamp(3.5rem,7vw,6rem); text-align:center;
+}
+.creed-line{
+  font-family:var(--serif); font-weight:600;
+  font-size:clamp(2.5rem,1.5rem + 4.6vw,5.2rem);
+  line-height:1.04; letter-spacing:-.024em; margin:0;
+  display:flex; flex-wrap:wrap; justify-content:center; gap:0 .42em;
+}
+.c-a{ color:var(--sage-ink); }
+.c-s{ color:var(--ochre-ink); }
+.c-t{ color:var(--slate); }
+.creed-sub{
+  margin:clamp(1.4rem,3vw,2rem) auto 0; max-width:48ch;
+  font-size:clamp(1.06rem,1rem + .4vw,1.24rem); font-weight:300; color:var(--taupe);
+}
+
+/* ── what you keep — photograph as the ground, light type over it ── */
+.statement{
+  color:var(--sand-86);
+  padding-block:clamp(8rem,16vw,13rem);
+  background-color:var(--slate);
+  background-image:linear-gradient(rgba(44,62,76,.30), rgba(44,62,76,.88)), url("assets/image/hero.jpg");
+  background-size:cover; background-position:center; background-repeat:no-repeat;
+}
+.statement-k{ display:block; margin-bottom:1.4rem; color:var(--sage-lite); }
+.statement-t{
+  font-family:var(--serif); font-weight:600; color:var(--sand);
+  font-size:clamp(2.2rem,1.5rem + 3.1vw,3.9rem);
+  line-height:1.06; letter-spacing:-.022em; margin:0; max-width:22ch; text-wrap:balance;
+}
+.statement-t i{ font-style:italic; font-weight:400; color:var(--sage-lite); }
+.statement-p{ margin:1.7rem 0 0; max-width:52ch; font-weight:300; color:var(--sand-86); font-size:1.08rem; line-height:1.62; }
+
+/* ── 05 · approach steps ─────────────────── */
+.steps{
+  display:grid; grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:clamp(1.25rem,2.5vw,2rem); margin:clamp(2rem,4vw,3rem) 0 0; padding:0; list-style:none;
+}
+.step{ position:relative; border-top:2px solid var(--slate-20); padding-top:1.5rem; }
+.step::before{
+  content:""; position:absolute; top:-7px; left:0;
+  width:12px; height:12px; border-radius:50%;
+  background:var(--sand); border:2px solid var(--sage);
+}
+.step-n{
+  display:block; font-family:var(--serif); font-weight:600; color:var(--sage-ink);
+  font-size:2.1rem; line-height:1; letter-spacing:-.02em; margin-bottom:.5rem;
+  font-variant-numeric:tabular-nums;
+}
+.step-h{
+  font-family:var(--serif); font-weight:600; color:var(--slate);
+  font-size:1.65rem; letter-spacing:-.018em; margin:0 0 .5rem; line-height:1.08;
+}
+.step-p{ margin:0; font-size:.94rem; font-weight:300; line-height:1.6; }
+
+/* hidden — restore by switching display back to grid */
+.loop{
+  display:none; grid-template-columns:auto minmax(0,1fr); gap:clamp(1.25rem,3vw,2.5rem);
+  align-items:center; margin-top:clamp(2.25rem,4.5vw,3.25rem);
+  background:var(--sand-2); border:1px solid var(--hair);
+  border-left:4px solid var(--sage); border-radius:6px;
+  padding:clamp(1.5rem,3vw,2.25rem);
+}
+.loop-mark{ display:block; width:64px; height:64px; }
+.loop-h{
+  font-family:var(--serif); font-weight:600; color:var(--slate);
+  font-size:1.6rem; letter-spacing:-.015em; margin:0 0 .45rem; line-height:1.1;
+}
+.loop-p{ margin:0; font-size:.98rem; font-weight:300; line-height:1.62; max-width:62ch; }
+
+/* ── 07 · questions ──────────────────────── */
+.faq{ border-top:1px solid var(--hair); max-width:90ch; }
+.faq-i{ border-bottom:1px solid var(--hair); }
+.faq-i summary{
+  cursor:pointer; list-style:none; position:relative;
+  padding:1.5rem 3rem 1.5rem 0;
+  font-family:var(--serif); font-weight:600; color:var(--slate);
+  font-size:1.2rem; line-height:1.3; letter-spacing:-.01em;
+}
+.faq-i summary::-webkit-details-marker{ display:none; }
+.faq-i summary::after{
+  content:"+"; position:absolute; right:.25rem; top:50%; transform:translateY(-50%);
+  font-family:var(--sans); font-weight:400; font-size:1.25rem; color:var(--sage-ink); line-height:1;
+}
+.faq-i[open] summary::after{ content:"\2013"; }
+.faq-i summary:hover{ color:var(--sage-ink); }
+.faq-a{ margin:0; padding:0 3rem 1.7rem 0; max-width:68ch; font-weight:300; }
+
+/* ── 08 · about ──────────────────────────── */
+.who{ display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:clamp(2rem,5vw,4.5rem); align-items:start; }
+.portrait{
+  display:block; width:100%; height:auto;
+  aspect-ratio:1/1; object-fit:cover;
+  border-radius:6px; border:0;
+  margin-bottom:1.8rem;
+}
+.who-name{
+  font-family:var(--serif); font-weight:600; color:var(--slate);
+  font-size:2.5rem; letter-spacing:-.025em; margin:.5rem 0 .3rem; line-height:1;
+}
+.who-role{ margin:0 0 1.6rem; font-size:.92rem; font-weight:300; }
+.who-list{ list-style:none; margin:0; padding:0; }
+.who-list li{
+  display:flex; justify-content:space-between; gap:1rem; padding:.8rem 0;
+  border-bottom:1px solid var(--hair); font-size:.78rem;
+  letter-spacing:.08em; text-transform:uppercase;
+}
+.who-list span{ color:var(--taupe-70); font-weight:400; }
+.who-list strong{ color:var(--slate); font-weight:700; text-align:right; }
+.who-body p{ margin:0 0 1.2rem; }
+.who-body p:last-child{ margin-bottom:0; }
+
+/* ── 09 · contact ────────────────────────── */
+.cta-in{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(2rem,5vw,4rem); align-items:start; }
+.contact{ list-style:none; margin:clamp(2rem,4vw,2.75rem) 0 0; padding:0; }
+.contact li{ border-bottom:1px solid var(--sand-14); padding:1rem 0; }
+
+/* ── enquiry form ────────────────────────── */
+.form{ display:grid; gap:1.05rem; }
+.form-row{ display:grid; grid-template-columns:1fr 1fr; gap:1.05rem; }
+.field{ display:block; min-width:0; }
+.field > span{
+  display:block; font-size:.69rem; font-weight:600; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--sage-lite); margin-bottom:.45rem;
+}
+.field input,.field select,.field textarea{
+  width:100%; display:block;
+  font-family:var(--sans); font-size:.98rem; font-weight:300; line-height:1.5;
+  color:var(--sand); background:color-mix(in srgb, var(--sand) 8%, transparent);
+  border:1px solid var(--sand-24); border-radius:4px; padding:.8rem .9rem;
+}
+.field textarea{ min-height:132px; resize:vertical; }
+.field input::placeholder,.field textarea::placeholder{ color:color-mix(in srgb, var(--sand) 45%, transparent); }
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:2px solid var(--sage-lite); outline-offset:1px; border-color:transparent;
+}
+/* native dropdowns paint their list with the OS, so set both explicitly */
+.field select option{ color:var(--slate); background:var(--white); }
+.form .btn{ justify-self:start; margin-top:.4rem; cursor:pointer; font-family:var(--sans); }
+.contact li:first-child{ border-top:1px solid var(--sand-24); }
+.contact-k{ display:block; font-size:.69rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--sage-lite); margin-bottom:.35rem; }
+.contact-v{
+  font-family:var(--serif); font-weight:600; color:var(--sand);
+  font-size:clamp(1.3rem,1.1rem + .8vw,1.75rem); letter-spacing:-.015em;
+  text-decoration:none; border-bottom:1px solid transparent; overflow-wrap:anywhere;
+}
+a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
+
+/* ── footer ──────────────────────────────── */
+.foot{ background:var(--slate); color:var(--sand-86); padding-block:clamp(2.75rem,5vw,3.75rem); }
+.foot-top{ display:grid; grid-template-columns:minmax(0,1.2fr) repeat(2,minmax(0,1fr)); gap:2.5rem; }
+.foot .mark img{ height:clamp(56px,6vw,76px); }
+.foot-tag{ margin:.45rem 0 0; font-size:.69rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; color:var(--sage-lite); }
+.foot-gk{ display:block; margin-bottom:1.1rem; font-size:.67rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; color:var(--sage-lite); }
+.foot-list{ list-style:none; margin:0; padding:0; }
+.foot-list li{ margin-bottom:.6rem; }
+.foot-list a{ font-size:.85rem; font-weight:300; text-decoration:none; color:var(--sand-86); }
+.foot-list a:hover{ color:var(--sand); }
+.foot-meta{
+  margin:clamp(2.5rem,5vw,3.5rem) 0 0; padding-top:1.7rem; border-top:1px solid var(--sand-14);
+  font-size:.69rem; font-weight:400; letter-spacing:.1em; text-transform:uppercase;
+  color:color-mix(in srgb,var(--sand) 55%,transparent);
+}
+
+/* ── a11y ────────────────────────────────── */
+:focus-visible{ outline:2px solid var(--ochre-ink); outline-offset:3px; }
+.dark :focus-visible,.foot :focus-visible,.hero :focus-visible,.nav :focus-visible{ outline-color:var(--sage-lite); }
+.skip{ position:absolute; left:-9999px; }
+.skip:focus{
+  left:1rem; top:1rem; z-index:99; background:var(--slate); color:var(--sand);
+  padding:.75rem 1.1rem; border-radius:4px; font-size:.75rem; font-weight:600; letter-spacing:.1em;
+}
+
+/* ── responsive ──────────────────────────── */
+@media (max-width:1000px){
+  .intro{ grid-template-columns:1fr; }
+  .who{ grid-template-columns:1fr; }
+  .cta-in{ grid-template-columns:1fr; }
+  .steps{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:2rem 1.5rem; }
+  .foot-top{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:860px){
+  .cards{ grid-template-columns:1fr; }
+}
+@media (max-width:820px){
+  .nav-links{ display:none; }
+  .probs{ grid-template-columns:1fr; gap:1.75rem; }
+  .also{ grid-template-columns:1fr; gap:1.75rem; }
+  .loop{ grid-template-columns:1fr; gap:1.25rem; }
+}
+@media (max-width:620px){
+  .steps{ grid-template-columns:1fr; }
+  .who-list li{ flex-direction:column; gap:.2rem; }
+  .who-list strong{ text-align:left; }
+  .foot-top{ grid-template-columns:1fr; gap:2rem; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<main id="main">
+
+<!-- ══ 01 · HERO, with the header on it ══════ -->
+<section class="hero" id="top">
+  <img class="hero-img" src="assets/image/bg-1.jpg" alt="" width="1600" height="900">
+  <div class="hero-veil"></div>
+
+  <header class="nav">
+    <div class="wrap nav-in">
+      <a class="mark" href="#top"><img src="assets/image/SWC-Logo.png" alt="" width="393" height="271"><span class="mark-text"><strong>StewardWorks</strong><em>Consulting</em></span></a>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-sm" href="#contact">Start assessment</a>
+    </div>
+  </header>
+
+  <div class="wrap hero-in">
+    <p class="label hero-tag">Nonprofit &amp; mission-driven consulting</p>
+    <h1 class="hero-h1">Turn bold ideas into <i>structured</i> programs.</h1>
+    <p class="hero-lede">We partner with nonprofit and mission-driven organizations to design strong programs, build internal capacity, and implement operational systems that support long-term sustainability.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#contact">Start assessment today</a>
+      <a class="btn btn-onimg" href="#services">See services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 02 · CREED ════════════════════════════ -->
+<section class="creed">
+  <div class="wrap">
+    <p class="creed-line">
+      <span class="c-a">Amplify.</span>
+      <span class="c-s">Sustain.</span>
+      <span class="c-t">Transform.</span>
+    </p>
+    <p class="creed-sub">Turning bold ideas into structured programs and tangible social impact.</p>
+  </div>
+</section>
+
+<!-- ══ 03 · WHY ORGANIZATIONS CALL ═══════════ -->
+<section class="band" id="problem">
+  <div class="wrap">
+    <div class="sec"><span class="label">Why organizations call</span></div>
+
+    <div class="intro">
+      <h2 class="h2">The mission is clear. The systems holding it up often aren&#8217;t.</h2>
+      <div class="intro-body">
+        <p>Funding arrives before the operating plan does. Programs get built in the margins of other work. The people who know how everything runs are the same people running it.</p>
+        <p>StewardWorks brings the structure — strategy plans, workflows, documentation, and project discipline — so the work can grow without breaking.</p>
+      </div>
+    </div>
+
+    <div class="probs">
+      <div class="prob">
+        <span class="label">Starting something new</span>
+        <h3 class="prob-h">A funded idea, no blueprint</h3>
+        <p class="prob-p">The concept is approved. What it still needs is a plan, a timeline, a budget, and someone to carry it.</p>
+      </div>
+      <div class="prob">
+        <span class="label">Capacity is capped</span>
+        <h3 class="prob-h">It all lives in one person&#8217;s head</h3>
+        <p class="prob-p">Nothing is written down, so nothing can be delegated — and every absence becomes a risk.</p>
+      </div>
+      <div class="prob">
+        <span class="label">Growing past the systems</span>
+        <h3 class="prob-h">The workarounds stopped working</h3>
+        <p class="prob-p">Manual processes that held at a smaller scale now cost time, accuracy, and credibility with funders.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 03 · EXPERTISE, 2 × 2 ═════════════════ -->
+<section class="band tinted" id="services">
+  <div class="wrap">
+    <div class="sec"><span class="label">Expertise at a glance</span></div>
+
+    <h2 class="h2">Four ways to strengthen the work.</h2>
+    <p class="lede gap">Bring in the whole scope, or the single piece your team can&#8217;t staff right now.</p>
+
+    <div class="cards">
+
+      <article class="card">
+        <div class="card-art">
+          <img src="assets/image/expertise-1.jpg" alt="" width="1600" height="900" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="label">Build</span>
+          <h3 class="card-h">Program development &amp; implementation</h3>
+          <p class="card-p">From concept to a running program — refined, planned, resourced, and launched with the structure to hold it steady.</p>
+          <span class="label spec-k">Includes</span>
+          <ul class="spec">
+            <li>Capacity building strategy plan</li>
+            <li>Program concept development or refinement</li>
+            <li>Program implementation</li>
+          </ul>
+          <a class="tlink" href="mailto:jaina.reed@gmail.com?subject=Program%20development%20%E2%80%94%20StewardWorks">Discuss this &#8594;</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-art">
+          <img src="assets/image/expertise-2.jpg" alt="" width="1600" height="900" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="label">Manage</span>
+          <h3 class="card-h">Project management</h3>
+          <p class="card-p">The discipline that connects strategy to execution — budgets held, vendors coordinated, timelines honoured, risks named before they become problems.</p>
+          <span class="label spec-k">Includes</span>
+          <ul class="spec">
+            <li>Budget management</li>
+            <li>Logistics &amp; vendor management</li>
+            <li>Timeline development</li>
+            <li>Issue and risk management</li>
+            <li>Connecting strategy to execution</li>
+          </ul>
+          <a class="tlink" href="mailto:jaina.reed@gmail.com?subject=Project%20management%20%E2%80%94%20StewardWorks">Discuss this &#8594;</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-art">
+          <img src="assets/image/expertise-3.jpg" alt="" width="1600" height="900" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="label">Support</span>
+          <h3 class="card-h">Operations &amp; administrative support</h3>
+          <p class="card-p">The documented backbone of a program — procedures your team can follow, and hands-on support through the life of the contract.</p>
+          <span class="label spec-k">Includes</span>
+          <ul class="spec">
+            <li>Standard Operating Procedures (SOPs)</li>
+            <li>Program launch toolkit — checklists, templates, workflows</li>
+            <li>General operational and administrative support for the contracted project, throughout its duration</li>
+          </ul>
+          <a class="tlink" href="mailto:jaina.reed@gmail.com?subject=Operations%20%26%20admin%20support%20%E2%80%94%20StewardWorks">Discuss this &#8594;</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-art">
+          <img src="assets/image/expertise-4.jpg" alt="" width="1600" height="900" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="label">Improve</span>
+          <h3 class="card-h">Process improvement</h3>
+          <p class="card-p">A close read of how the work actually moves today, and a practical path to fewer handoffs, less rework, and clearer accountability.</p>
+          <span class="label spec-k">Includes</span>
+          <ul class="spec">
+            <li>Process redesign</li>
+            <li>Workflow platform assessment &amp; implementation</li>
+            <li>Operations manual</li>
+            <li>Staff training</li>
+          </ul>
+          <a class="tlink" href="mailto:jaina.reed@gmail.com?subject=Process%20improvement%20%E2%80%94%20StewardWorks">Discuss this &#8594;</a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="also">
+      <div class="also-i">
+        <span class="label">Also available</span>
+        <h3 class="also-h">Event planning &amp; execution</h3>
+        <p class="also-p">Convenings, launches, and programme events — planned, coordinated, and run end to end.</p>
+      </div>
+      <div class="also-i">
+        <span class="label">Also available</span>
+        <h3 class="also-h">Talent search &amp; placement</h3>
+        <p class="also-p">Strategic recruiting for mission-driven teams, drawn from a decade of nonprofit hiring experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 04 · STATEMENT, PALE BLUE ═════════════ -->
+<section class="statement">
+  <div class="wrap">
+    <span class="label statement-k">What you keep</span>
+      <p class="statement-t">Systems your team owns, not a dependency on <i>me.</i></p>
+      <p class="statement-p">Every engagement leaves behind written procedures, working templates, and a team that knows how to use them.</p>
+  </div>
+</section>
+
+<!-- ══ 05 · APPROACH ═════════════════════════ -->
+<section class="band" id="approach">
+  <div class="wrap">
+    <div class="sec"><span class="label">The approach</span></div>
+
+    <h2 class="h2">How the work moves.</h2>
+    <p class="lede">Four stages, from a concept on paper to a program your team runs without you.</p>
+
+    <ol class="steps">
+      <li class="step">
+        <span class="step-n">01</span>
+        <h3 class="step-h">Concept</h3>
+        <p class="step-p">The idea gets developed or refined until it is specific enough to plan against — who it serves, what it delivers, what success looks like.</p>
+      </li>
+      <li class="step">
+        <span class="step-n">02</span>
+        <h3 class="step-h">Plan</h3>
+        <p class="step-p">Capacity building strategy, budget, and timeline. Vendors and logistics mapped, risks named early rather than discovered late.</p>
+      </li>
+      <li class="step">
+        <span class="step-n">03</span>
+        <h3 class="step-h">Launch</h3>
+        <p class="step-p">Implementation, with the launch toolkit alongside it — checklists, templates, and workflows your team uses from day one.</p>
+      </li>
+      <li class="step">
+        <span class="step-n">04</span>
+        <h3 class="step-h">Sustain</h3>
+        <p class="step-p">Procedures written down, staff trained on them, and the program handed over in a state your team can carry forward.</p>
+      </li>
+    </ol>
+
+    <div class="loop">
+      <svg class="loop-mark" viewBox="0 0 64 64" role="img" aria-label="A continuing cycle">
+        <path d="M14 34 A 18 18 0 1 1 21 47" fill="none" stroke="#6B8E6A" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M9 26 l5 9 l10 -4" fill="none" stroke="#6B8E6A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="32" cy="32" r="4.5" fill="#6B8E6A"/>
+      </svg>
+      <div>
+        <h3 class="loop-h">Then it loops — review, document, improve.</h3>
+        <p class="loop-p">A program is never finished on the day it launches. What gets reviewed and written down is what survives staff turnover, grant cycles, and growth — which is why process improvement runs alongside the work rather than after it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 06 · PACKAGES ═════════════════════════ -->
+<section class="band tinted" id="packages">
+  <div class="wrap">
+    <div class="sec"><span class="label">Packages</span></div>
+
+    <h2 class="h2">Ways to work together.</h2>
+    <p class="lede">Two structured engagements, or individual services scoped to exactly what you need.</p>
+
+    <div class="pks">
+
+      <article class="pk">
+        <div class="pk-head">
+          <span class="label">Package</span>
+          <h3 class="pk-n">Foundations</h3>
+          <span class="pk-dur">6&#8211;8 weeks</span>
+          <span class="pk-price">$6,300&#8211;$8,400</span>
+        </div>
+        <div class="pk-body">
+          <ul class="pk-list">
+            <li>Program design blueprint</li>
+            <li>Capacity assessment</li>
+            <li>Implementation timeline</li>
+            <li>3&#8211;5 SOPs</li>
+            <li>Launch toolkit — checklists, templates, workflows</li>
+            <li>Training sessions (2)</li>
+            <li>General operations and administrative support</li>
+            <li>Executive summary</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="pk pk-b">
+        <div class="pk-head">
+          <span class="label">Package</span>
+          <h3 class="pk-n">Growth &amp; optimization</h3>
+          <span class="pk-dur">10&#8211;12 weeks</span>
+          <span class="pk-price">$10,500&#8211;$12,600</span>
+        </div>
+        <div class="pk-body">
+          <ul class="pk-list">
+            <li>Program design blueprint</li>
+            <li>Capacity roadmap</li>
+            <li>Implementation timeline</li>
+            <li>SOPs manual (up to 15)</li>
+            <li>Launch toolkit — checklists, templates, workflows</li>
+            <li>Training sessions (4)</li>
+            <li>Workflow platform assessment &amp; implementation</li>
+            <li>General operations and administrative support</li>
+            <li>Executive summary</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="pk pk-c">
+        <div class="pk-head">
+          <span class="label">Single services</span>
+          <h3 class="pk-n">&Agrave; la carte</h3>
+          <span class="pk-dur">Scoped individually</span>
+          <span class="pk-price">From $500</span>
+        </div>
+        <div class="pk-body">
+          <ul class="pk-list">
+            <li>Capacity assessment <b>$2,500</b></li>
+            <li>SOP development <b>$500&#8211;$1,000 per SOP</b></li>
+            <li>Process redesign <b>$3,000&#8211;$6,000</b></li>
+            <li>Operations manual <b>$5,000</b></li>
+            <li>Staff training <b>$1,000&#8211;$2,500</b></li>
+            <li>Ongoing operations and administrative support <b>$35/hr</b></li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="pk-foot">
+      <p class="pk-note">Every engagement is scoped to your organization, so the ranges above move with the size of the work. The capacity assessment is the usual starting point.</p>
+      <a class="btn" href="mailto:jaina.reed@gmail.com?subject=Assessment%20request%20%E2%80%94%20StewardWorks%20Consulting">Start assessment today</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ 07 · QUESTIONS ════════════════════════ -->
+<section class="band tinted" id="questions">
+  <div class="wrap">
+    <div class="sec"><span class="label">Common questions</span></div>
+
+    <h2 class="h2 gap">Before you get in touch.</h2>
+
+    <div class="faq">
+      <details class="faq-i">
+        <summary>What happens in the assessment?</summary>
+        <p class="faq-a">The capacity assessment is where most engagements begin. It reads where your organization&#8217;s capacity is strongest and where the gaps sit, so the work that follows is aimed at the right problems. It runs on its own for $2,500, and it is built into the Foundations package.</p>
+      </details>
+
+      <details class="faq-i">
+        <summary>What kinds of organizations do you work with?</summary>
+        <p class="faq-a">Nonprofit and mission-driven organizations, and the changemakers inside them — teams committed to lasting impact who need the structure to sustain it.</p>
+      </details>
+
+      <details class="faq-i">
+        <summary>Can you step into a program that already exists?</summary>
+        <p class="faq-a">Yes. Engagements run in both directions — building a new program from concept, or coming into an existing one to strengthen systems, manage a project, or provide operational support.</p>
+      </details>
+
+      <details class="faq-i">
+        <summary>What do we keep at the end?</summary>
+        <p class="faq-a">Documented procedures, a program launch toolkit of checklists, templates and workflows, and a team trained to use them. The work is built to run without me.</p>
+      </details>
+
+      <details class="faq-i">
+        <summary>Do you help with hiring?</summary>
+        <p class="faq-a">Yes — strategic talent search and placement, informed by a decade of nonprofit program management and recruiting.</p>
+      </details>
+
+      <details class="faq-i">
+        <summary>What does it cost?</summary>
+        <p class="faq-a">Foundations runs $6,300&#8211;$8,400 across six to eight weeks. Growth &amp; optimization runs $10,500&#8211;$12,600 across ten to twelve. Individual services are available à la carte, from $500 for a single SOP. Final pricing is quoted to your scope.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 08 · ABOUT ════════════════════════════ -->
+<section class="band" id="about">
+  <div class="wrap">
+    <div class="sec"><span class="label">About</span></div>
+
+    <div class="who">
+      <div>
+        <img class="portrait" src="assets/image/jaina.jpg" alt="Jaina Reed Thompson" width="800" height="800">
+        <span class="label">Founder</span>
+        <p class="who-name">Jaina Reed<br>Thompson</p>
+        <p class="who-role">Program development strategist</p>
+        <ul class="who-list">
+          <li><span>Practice</span> <strong>Programs &amp; operations</strong></li>
+          <li><span>Sector</span> <strong>Nonprofit &amp; mission-driven</strong></li>
+          <li><span>Experience</span> <strong>10+ years</strong></li>
+          <li><span>Entity</span> <strong>StewardWorks Consulting, LLC</strong></li>
+        </ul>
+      </div>
+
+      <div class="who-body">
+        <h2 class="h2">A fractional partner for changemakers.</h2>
+        <p>Jaina Reed Thompson founded StewardWorks Consulting to strengthen the capacity, sustainability, and impact of nonprofit and mission-driven organizations — so they can focus on their mission and the communities they serve.</p>
+        <p>She brings more than a decade in nonprofit program management, program process improvement, and organizational development, pairing strategic vision with hands-on delivery across program development and implementation, capacity building, operational and administrative support, project management, and event planning and execution.</p>
+        <p>Whether the task is building a new program, strengthening organizational systems, managing a project, or providing strategic operational support, the aim is the same: bring the structure, insight, and momentum that move the work forward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 09 · CONTACT ══════════════════════════ -->
+<section class="band dark" id="contact">
+  <div class="wrap">
+    <div class="sec"><span class="label">Start here</span></div>
+
+    <div class="cta-in">
+
+      <div>
+        <h2 class="h2">Tell me what the work needs.</h2>
+        <p class="lede">Pricing is quoted per engagement, based on your scope. A first conversation costs nothing and will tell you whether StewardWorks is the right fit.</p>
+
+        <ul class="contact">
+          <li>
+            <span class="contact-k">Email</span>
+            <a class="contact-v" href="mailto:jaina.reed@gmail.com">jaina.reed@gmail.com</a>
+          </li>
+          <li>
+            <span class="contact-k">Phone</span>
+            <a class="contact-v" href="tel:+15126191185">512.619.1185</a>
+          </li>
+          <li>
+            <span class="contact-k">LinkedIn</span>
+            <a class="contact-v" href="https://www.linkedin.com/in/jainareed" target="_blank" rel="noopener">linkedin.com/in/jainareed</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ⚠ Replace REPLACE-WITH-FORM-ID with a real Formspree form ID before
+           this goes live, or the form will 404 on submit. Netlify alternative:
+           drop the action and add  netlify  to the <form> tag instead. -->
+      <form class="form" action="https://formspree.io/f/REPLACE-WITH-FORM-ID" method="POST">
+        <div class="form-row">
+          <label class="field">
+            <span>Name</span>
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label class="field">
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+        </div>
+
+        <label class="field">
+          <span>Organization</span>
+          <input type="text" name="organization" autocomplete="organization">
+        </label>
+
+        <label class="field">
+          <span>What are you considering?</span>
+          <select name="interest">
+            <option>Not sure yet</option>
+            <option>Capacity assessment</option>
+            <option>Foundations package</option>
+            <option>Growth &amp; optimization package</option>
+            <option>A single service</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>What does the work need?</span>
+          <textarea name="message" rows="5" placeholder="A sentence or two about the program, the timeline, and what&#8217;s getting in the way." required></textarea>
+        </label>
+
+        <button class="btn btn-ondark" type="submit">Start assessment today</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a class="mark" href="#top"><img src="assets/image/SWC-Logo.png" alt="StewardWorks Consulting" width="393" height="271"></a>
+        <p class="foot-tag">Amplify &bull; Sustain &bull; Transform</p>
+      </div>
+      <div>
+        <span class="foot-gk">Explore</span>
+        <ul class="foot-list">
+          <li><a href="#problem">Why organizations call</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#packages">Packages &amp; pricing</a></li>
+          <li><a href="#questions">Common questions</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="foot-gk">Contact</span>
+        <ul class="foot-list">
+          <li><a href="#about">About Jaina</a></li>
+          <li><a href="mailto:jaina.reed@gmail.com">jaina.reed@gmail.com</a></li>
+          <li><a href="tel:+15126191185">512.619.1185</a></li>
+          <li><a href="https://www.linkedin.com/in/jainareed" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="foot-meta">StewardWorks Consulting, LLC &bull; &#169; 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
