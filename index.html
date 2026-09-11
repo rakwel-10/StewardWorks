@@ -228,6 +228,27 @@ a{ color:inherit; }
 }
 .also-p{ margin:0; font-size:.95rem; font-weight:300; line-height:1.62; }
 
+/* ── ways to work together — main column plus a rail of notes ── */
+.ways{
+  display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr);
+  gap:clamp(2rem,5vw,4.5rem); align-items:start;
+}
+.ways-h{
+  font-family:var(--serif); font-weight:600; color:var(--slate);
+  font-size:clamp(1.45rem,1.25rem + .7vw,1.85rem);
+  letter-spacing:-.018em; line-height:1.12; margin:0 0 1.15rem;
+}
+.note-card{
+  background:color-mix(in srgb, var(--taupe) 9%, var(--sand));
+  border-radius:6px; padding:clamp(1.05rem,2.2vw,1.4rem); margin-bottom:.85rem;
+}
+.note-card:last-child{ margin-bottom:0; }
+.note-k{
+  margin:0 0 .5rem; font-size:.65rem; font-weight:700; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--ochre-ink);
+}
+.note-p{ margin:0; font-size:.94rem; font-weight:300; line-height:1.6; color:var(--taupe); }
+
 
 
 /* ── partner companies ── */
@@ -417,6 +438,7 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
 
 /* ── responsive ──────────────────────────── */
 @media (max-width:1000px){
+  .ways{ grid-template-columns:1fr; }
   .intro{ grid-template-columns:1fr; }
   .who{ grid-template-columns:1fr; }
   .cta-in{ grid-template-columns:1fr; }
@@ -684,11 +706,33 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
   <div class="wrap">
     <div class="sec"><span class="label">Packages</span></div>
 
-    <h2 class="h2">Ways to work together.</h2>
-    <p class="lede">Every engagement is scoped to your organization. The capacity assessment is the usual starting point.</p>
+    <div class="ways">
+      <div>
+        <h2 class="h2">Ways to work together.</h2>
+        <p class="lede">Every engagement is scoped to your organization. The capacity assessment is the usual starting point.</p>
+        <div class="btn-row" style="margin-top:clamp(1.75rem,3.5vw,2.5rem)">
+          <a class="btn" href="mailto:jaina.reed@gmail.com?subject=Assessment%20request%20%E2%80%94%20StewardWorks%20Consulting">Start assessment today</a>
+        </div>
+      </div>
 
-    <div class="btn-row" style="margin-top:clamp(1.75rem,3.5vw,2.5rem)">
-      <a class="btn" href="mailto:jaina.reed@gmail.com?subject=Assessment%20request%20%E2%80%94%20StewardWorks%20Consulting">Start assessment today</a>
+      <div class="ways-aside">
+        <h3 class="ways-h">What to expect</h3>
+
+        <div class="note-card">
+          <p class="note-k">Where it starts</p>
+          <p class="note-p">Most engagements open with a capacity assessment, so the work that follows targets the real gaps rather than the obvious ones.</p>
+        </div>
+
+        <div class="note-card">
+          <p class="note-k">How scope is set</p>
+          <p class="note-p">Scope follows the size of the programme, the timeline you are working to, and what your team can carry alongside its existing work.</p>
+        </div>
+
+        <div class="note-card">
+          <p class="note-k">Still working it out</p>
+          <p class="note-p">A finished brief is not a prerequisite. Bring the situation as it stands and we will shape the engagement from there.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
