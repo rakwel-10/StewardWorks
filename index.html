@@ -228,54 +228,8 @@ a{ color:inherit; }
 }
 .also-p{ margin:0; font-size:.95rem; font-weight:300; line-height:1.62; }
 
-/* tagline, coloured like the logo */
-.t-a{ color:var(--sage-lite); }
-.t-s{ color:var(--ochre); }
-.t-t{ color:var(--sand); }
 
-/* ── packages ────────────────────────────── */
-.pks{
-  display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:clamp(1.25rem,2.5vw,1.75rem); margin-top:clamp(2rem,4vw,3rem);
-}
-/* each package carries one brand colour: sage, ochre, slate */
-.pk{
-  --pc:var(--sage); --pc-ink:var(--sage-ink);
-  display:flex; flex-direction:column;
-  background:var(--sand); border:1px solid var(--hair); border-radius:6px; overflow:hidden;
-  border-top:4px solid var(--pc);
-}
-.pk-b{ --pc:var(--ochre); --pc-ink:var(--ochre-ink); }
-.pk-c{ --pc:var(--slate); --pc-ink:var(--slate); }
-.pk-head{
-  background:var(--white);
-  border-bottom:1px solid color-mix(in srgb, var(--pc) 32%, transparent);
-  padding:clamp(1.3rem,2.5vw,1.7rem);
-}
-.pk-head .label{ color:var(--pc-ink); }
-.pk-list li::before{ color:var(--pc); }
-.pk-n{
-  font-family:var(--serif); font-weight:600; color:var(--slate);
-  font-size:clamp(1.5rem,1.3rem + .6vw,1.85rem);
-  letter-spacing:-.018em; margin:.5rem 0 .6rem; line-height:1.08;
-}
-.pk-dur{ display:block; font-size:.74rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--slate); margin-bottom:.35rem; }
-.pk-price{ font-family:var(--serif); font-weight:600; color:var(--pc-ink); font-size:1.55rem; letter-spacing:-.012em; line-height:1.1; }
-.pk-body{ background:var(--white); padding:clamp(1.3rem,2.5vw,1.7rem); flex:1; }
-.pk-list{ list-style:none; margin:0; padding:0; }
-.pk-list li{
-  position:relative; padding-left:1.3rem; padding-block:.45rem;
-  font-size:.92rem; font-weight:400; line-height:1.5; color:var(--taupe);
-}
-.pk-list li::before{ content:"—"; position:absolute; left:0; color:var(--sage); }
-.pk-list b{ display:block; font-weight:700; color:var(--slate); font-size:.86rem; letter-spacing:.01em; margin-top:.1rem; }
-.pk-foot{
-  display:flex; flex-wrap:wrap; align-items:center; gap:1rem 1.75rem;
-  margin-top:clamp(2rem,4vw,2.75rem); padding-top:1.6rem; border-top:1px solid var(--hair);
-}
-.pk-note{ margin:0; font-size:.95rem; font-weight:300; max-width:52ch; }
 
-/* ── 04 · statement band, pale blue ──────── */
 /* ── partner companies ── */
 .partners{
   background:transparent; border-block:0;
@@ -731,76 +685,9 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
     <div class="sec"><span class="label">Packages</span></div>
 
     <h2 class="h2">Ways to work together.</h2>
-    <p class="lede">Two structured engagements, or individual services scoped to exactly what you need.</p>
+    <p class="lede">Every engagement is scoped to your organization. The capacity assessment is the usual starting point.</p>
 
-    <div class="pks">
-
-      <article class="pk">
-        <div class="pk-head">
-          <span class="label">Package</span>
-          <h3 class="pk-n">Foundations</h3>
-          <span class="pk-dur">6&#8211;8 weeks</span>
-          <span class="pk-price">$6,300&#8211;$8,400</span>
-        </div>
-        <div class="pk-body">
-          <ul class="pk-list">
-            <li>Program design blueprint</li>
-            <li>Capacity assessment</li>
-            <li>Implementation timeline</li>
-            <li>3&#8211;5 SOPs</li>
-            <li>Launch toolkit — checklists, templates, workflows</li>
-            <li>Training sessions (2)</li>
-            <li>General operations and administrative support</li>
-            <li>Executive summary</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="pk pk-b">
-        <div class="pk-head">
-          <span class="label">Package</span>
-          <h3 class="pk-n">Growth &amp; optimization</h3>
-          <span class="pk-dur">10&#8211;12 weeks</span>
-          <span class="pk-price">$10,500&#8211;$12,600</span>
-        </div>
-        <div class="pk-body">
-          <ul class="pk-list">
-            <li>Program design blueprint</li>
-            <li>Capacity roadmap</li>
-            <li>Implementation timeline</li>
-            <li>SOPs manual (up to 15)</li>
-            <li>Launch toolkit — checklists, templates, workflows</li>
-            <li>Training sessions (4)</li>
-            <li>Workflow platform assessment &amp; implementation</li>
-            <li>General operations and administrative support</li>
-            <li>Executive summary</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="pk pk-c">
-        <div class="pk-head">
-          <span class="label">Single services</span>
-          <h3 class="pk-n">&Agrave; la carte</h3>
-          <span class="pk-dur">Scoped individually</span>
-          <span class="pk-price">From $500</span>
-        </div>
-        <div class="pk-body">
-          <ul class="pk-list">
-            <li>Capacity assessment <b>$2,500</b></li>
-            <li>SOP development <b>$500&#8211;$1,000 per SOP</b></li>
-            <li>Process redesign <b>$3,000&#8211;$6,000</b></li>
-            <li>Operations manual <b>$5,000</b></li>
-            <li>Staff training <b>$1,000&#8211;$2,500</b></li>
-            <li>Ongoing operations and administrative support <b>$35/hr</b></li>
-          </ul>
-        </div>
-      </article>
-
-    </div>
-
-    <div class="pk-foot">
-      <p class="pk-note">Every engagement is scoped to your organization, so the ranges above move with the size of the work. The capacity assessment is the usual starting point.</p>
+    <div class="btn-row" style="margin-top:clamp(1.75rem,3.5vw,2.5rem)">
       <a class="btn" href="mailto:jaina.reed@gmail.com?subject=Assessment%20request%20%E2%80%94%20StewardWorks%20Consulting">Start assessment today</a>
     </div>
   </div>
@@ -815,10 +702,6 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
     <h2 class="h2 gap">Before you get in touch.</h2>
 
     <div class="faq">
-      <details class="faq-i">
-        <summary>What happens in the assessment?</summary>
-        <p class="faq-a">The capacity assessment is where most engagements begin. It reads where your organization&#8217;s capacity is strongest and where the gaps sit, so the work that follows is aimed at the right problems. It runs on its own for $2,500, and it is built into the Foundations package.</p>
-      </details>
 
       <details class="faq-i">
         <summary>What kinds of organizations do you work with?</summary>
@@ -840,10 +723,6 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
         <p class="faq-a">Yes — strategic talent search and placement, informed by a decade of nonprofit program management and recruiting.</p>
       </details>
 
-      <details class="faq-i">
-        <summary>What does it cost?</summary>
-        <p class="faq-a">Foundations runs $6,300&#8211;$8,400 across six to eight weeks. Growth &amp; optimization runs $10,500&#8211;$12,600 across ten to twelve. Individual services are available à la carte, from $500 for a single SOP. Final pricing is quoted to your scope.</p>
-      </details>
     </div>
   </div>
 </section>
@@ -863,7 +742,6 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
           <li><span>Practice</span> <strong>Programs &amp; operations</strong></li>
           <li><span>Sector</span> <strong>Nonprofit &amp; mission-driven</strong></li>
           <li><span>Experience</span> <strong>10+ years</strong></li>
-          <li><span>Entity</span> <strong>StewardWorks Consulting, LLC</strong></li>
         </ul>
       </div>
 
