@@ -147,14 +147,16 @@ a{ color:inherit; }
 .btn-ondark:hover{ background:var(--sand); border-color:var(--sand); color:var(--slate); }
 .btn-row{ display:flex; flex-wrap:wrap; gap:.8rem; }
 
+/* secondary buttons. Slate keeps ochre reserved for the primary CTA,
+   and hover hands them the ochre so the relationship still reads. */
 .tlink{
-  display:inline-flex; align-items:center; gap:.45rem;
-  font-size:.73rem; font-weight:700; letter-spacing:.13em; text-transform:uppercase;
-  color:var(--sage-ink); text-decoration:none;
-  border-bottom:1px solid color-mix(in srgb,var(--sage) 45%,transparent);
-  padding-bottom:.2rem;
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-size:.7rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
+  text-decoration:none; white-space:nowrap;
+  padding:.72rem 1.2rem; border-radius:4px;
+  background:var(--slate); color:var(--sand); border:1px solid var(--slate);
 }
-.tlink:hover{ color:var(--slate); border-bottom-color:var(--slate); }
+.tlink:hover{ background:var(--ochre); border-color:var(--ochre); color:var(--slate); }
 
 /* shared parallax layer: an image that can be transformed, plus its veil.
    Overscanned 14% top and bottom so the travel never reveals an edge. */
@@ -260,6 +262,11 @@ a{ color:inherit; }
   text-transform:uppercase; color:var(--ochre-ink);
 }
 .note-p{ margin:0; font-size:.94rem; font-weight:300; line-height:1.6; color:var(--taupe); }
+.ways-img{
+  display:block; width:100%; height:auto; aspect-ratio:16/9;
+  object-fit:cover; border-radius:6px;
+  margin-top:clamp(2rem,4vw,3rem);
+}
 
 
 
@@ -520,7 +527,7 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
   <div class="hero-veil"></div>
 
   <div class="wrap hero-in">
-    <p class="label hero-tag">Nonprofit &amp; mission-driven consulting</p>
+    <p class="label hero-tag">Amplify. Sustain. Transform.</p>
     <h1 class="hero-h1">Turn bold ideas into <i>structured</i> programs.</h1>
     <p class="hero-lede">We partner with nonprofit and mission-driven organizations to design strong programs, build internal capacity, and implement operational systems that support long-term sustainability.</p>
     <div class="hero-cta">
@@ -747,6 +754,7 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
         <div class="btn-row" style="margin-top:clamp(1.75rem,3.5vw,2.5rem)">
           <a class="btn" href="mailto:jaina.reed@gmail.com?subject=Assessment%20request%20%E2%80%94%20StewardWorks%20Consulting">Start assessment today</a>
         </div>
+        <img class="ways-img" src="assets/image/our-process.jpg" alt="" width="1440" height="810" loading="lazy">
       </div>
 
       <div class="ways-aside">
