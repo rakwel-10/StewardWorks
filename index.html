@@ -41,6 +41,7 @@
   --sage-ink:   color-mix(in srgb, var(--sage)  60%, var(--taupe));  /* 4.9:1 on sand  */
   --sage-lite:  color-mix(in srgb, var(--sage)  60%, var(--sand));   /* 5.2:1 on slate */
   --ochre-ink:  color-mix(in srgb, var(--ochre) 45%, var(--taupe));  /* 4.9:1 on sand  */
+  --sage-btn:   color-mix(in srgb, var(--sage)  75%, var(--taupe));  /* 4.6:1 w/ white */
   --slate-tint: color-mix(in srgb, var(--slate) 14%, var(--sand));   /* light panels   */
   --sand-2:     color-mix(in srgb, var(--taupe)  5%, var(--sand));   /* alt. ground    */
   --hair:       color-mix(in srgb, var(--taupe) 16%, transparent);   /* subtle borders */
@@ -148,25 +149,21 @@ a{ color:inherit; }
   font-size:.75rem; font-weight:600; letter-spacing:.12em;
   text-transform:uppercase; text-decoration:none;
   padding:.9rem 1.5rem; border-radius:4px; white-space:nowrap;
-  background:var(--ochre); color:var(--slate); border:1px solid var(--ochre);
+  background:var(--sage-btn); color:var(--white); border:1px solid var(--sage-btn);
 }
-.btn:hover{ background:var(--slate); border-color:var(--slate); color:var(--sand); }
-.btn-onimg{ background:transparent; color:var(--slate); border-color:var(--slate-20); }
-.btn-onimg:hover{ background:var(--slate); border-color:var(--slate); color:var(--sand); }
+.btn:hover{ background:var(--slate); border-color:var(--slate); color:var(--white); }
 .btn-sm{ padding:.7rem 1.2rem; font-size:.7rem; }
-.btn-ondark:hover{ background:var(--sand); border-color:var(--sand); color:var(--slate); }
 .btn-row{ display:flex; flex-wrap:wrap; gap:.8rem; }
 
-/* secondary buttons. Slate keeps ochre reserved for the primary CTA,
-   and hover hands them the ochre so the relationship still reads. */
+/* the per-service buttons carry the same green as everything else */
 .tlink{
   display:inline-flex; align-items:center; gap:.5rem;
   font-size:.7rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
   text-decoration:none; white-space:nowrap;
   padding:.72rem 1.2rem; border-radius:4px;
-  background:var(--slate); color:var(--sand); border:1px solid var(--slate);
+  background:var(--sage-btn); color:var(--white); border:1px solid var(--sage-btn);
 }
-.tlink:hover{ background:var(--ochre); border-color:var(--ochre); color:var(--slate); }
+.tlink:hover{ background:var(--slate); border-color:var(--slate); color:var(--white); }
 
 /* shared parallax layer: an image that can be transformed, plus its veil.
    Overscanned 14% top and bottom so the travel never reveals an edge. */
@@ -542,7 +539,7 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
     <p class="hero-lede">We partner with nonprofit and mission-driven organizations to design strong programs, build internal capacity, and implement operational systems that support long-term sustainability.</p>
     <div class="hero-cta">
       <a class="btn" href="#contact">Start assessment today</a>
-      <a class="btn btn-onimg" href="#services">See services</a>
+      <a class="btn" href="#services">See services</a>
     </div>
   </div>
 </section>
