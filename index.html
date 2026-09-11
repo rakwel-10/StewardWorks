@@ -75,11 +75,9 @@ a{ color:inherit; }
 #services,#packages{ background:var(--sand-2); }
 .dark{ background:var(--slate); color:var(--sand-86); }
 /* closing CTA — bg-3 under a near-opaque slate overlay, for warmth only */
-#contact{
-  background-color:var(--slate);
-  background-image:linear-gradient(rgba(44,62,76,.70), rgba(44,62,76,.86)), url("assets/image/bg-3.jpg");
-  background-size:cover; background-position:center; background-repeat:no-repeat;
-}
+#contact{ position:relative; overflow:hidden; background-color:var(--slate); }
+#contact .bg-veil{ background:linear-gradient(rgba(44,62,76,.70), rgba(44,62,76,.86)); }
+#contact .wrap{ position:relative; z-index:2; }
 
 .label{
   font-size:.71rem; font-weight:600; letter-spacing:.15em;
@@ -152,12 +150,20 @@ a{ color:inherit; }
 }
 .tlink:hover{ color:var(--slate); border-bottom-color:var(--slate); }
 
+/* shared parallax layer: an image that can be transformed, plus its veil.
+   Overscanned 14% top and bottom so the travel never reveals an edge. */
+.bg-layer{
+  position:absolute; inset:-14% 0; width:100%; height:128%;
+  object-fit:cover; z-index:0;
+}
+.bg-veil{ position:absolute; inset:0; z-index:1; }
+
 /* ── 01 · hero ───────────────────────────── */
 .hero{
   position:relative; display:flex; align-items:center;
   min-height:clamp(760px,100vh,1120px); background:var(--slate); overflow:hidden;
 }
-.hero-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; }
+.hero-img{ position:absolute; inset:-14% 0; width:100%; height:128%; object-fit:cover; object-position:center; }
 .hero-veil{
   position:absolute; inset:0;
   background:linear-gradient(90deg, rgba(44,62,76,.8) 0%, rgba(44,62,76,.1) 100%);
@@ -276,12 +282,13 @@ a{ color:inherit; }
 
 /* ── what you keep — photograph as the ground, light type over it ── */
 .statement{
+  position:relative; overflow:hidden;
   color:var(--sand-86);
   padding-block:clamp(8rem,16vw,13rem);
   background-color:var(--slate);
-  background-image:linear-gradient(rgba(44,62,76,.30), rgba(44,62,76,.88)), url("assets/image/bg-1.jpg");
-  background-size:cover; background-position:center; background-repeat:no-repeat;
 }
+.statement .bg-veil{ background:linear-gradient(rgba(44,62,76,.30), rgba(44,62,76,.88)); }
+.statement .wrap{ position:relative; z-index:2; }
 .statement-k{ display:block; margin-bottom:1.4rem; color:var(--sage-lite); }
 .statement-t{
   font-family:var(--serif); font-weight:600; color:var(--sand);
@@ -436,47 +443,24 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
   padding:.75rem 1.1rem; border-radius:4px; font-size:.75rem; font-weight:600; letter-spacing:.1em;
 }
 
-/* ── motion ───────────────────────────────
-   Subtle, CSS-only, and entirely opt-out. Everything lives inside
-   prefers-reduced-motion: no-preference, and the scroll-driven reveals
-   sit behind @supports so unsupporting browsers just render statically. */
+/* ── motion — parallax only ──────────────
+   Images travel at roughly two thirds of scroll speed. CSS-only, off for
+   anyone with reduced motion, and behind @supports so unsupporting
+   browsers simply get still images. No text animation. */
 @media (prefers-reduced-motion: no-preference){
-
-  /* hero settles in once on load */
-  .hero-tag,.hero-h1,.hero-lede,.hero-cta{
-    animation:fade-up .85s cubic-bezier(.22,.7,.3,1) both;
-  }
-  .hero-h1{ animation-delay:.07s; }
-  .hero-lede{ animation-delay:.14s; }
-  .hero-cta{ animation-delay:.21s; }
-
-  /* parallax: the photo layer holds still while the section scrolls over it.
-     Desktop only - fixed attachment is ignored on iOS and janky on Android. */
-  @media (min-width:821px){
-    .statement,#contact{ background-attachment:scroll,fixed; }
-  }
-
   @supports (animation-timeline: view()){
-    /* hero photograph drifts a little slower than the page */
-    .hero-img{
-      animation:drift linear both;
+    .hero-img,.bg-layer{
+      animation:parallax linear both;
       animation-timeline:view();
       animation-range:cover 0% cover 100%;
-    }
-    /* content rises as it comes into view */
-    .h2,.lede,.prob,.card,.step,.note-card,.faq-i,
-    .who-body p,.portrait,.who-list,.also-i,
-    .statement-t,.statement-p,.partner-row,.form{
-      animation:rise linear both;
-      animation-timeline:view();
-      animation-range:entry 4% cover 28%;
+      will-change:transform;
     }
   }
 }
-
-@keyframes fade-up{ from{ opacity:0; transform:translateY(12px); } to{ opacity:1; transform:none; } }
-@keyframes rise{    from{ opacity:0; transform:translateY(16px); } to{ opacity:1; transform:none; } }
-@keyframes drift{   from{ transform:translateY(-2.5%) scale(1.06); } to{ transform:translateY(2.5%) scale(1.06); } }
+@keyframes parallax{
+  from{ transform:translateY(-11%); }
+  to{   transform:translateY(11%);  }
+}
 
 /* ── responsive ──────────────────────────── */
 @media (max-width:1000px){
@@ -691,6 +675,8 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
 
 <!-- ══ 04 · STATEMENT, PALE BLUE ═════════════ -->
 <section class="statement">
+  <img class="bg-layer" src="assets/image/bg-1.jpg" alt="" width="1680" height="945" loading="lazy">
+  <div class="bg-veil"></div>
   <div class="wrap">
     <span class="label statement-k">What you keep</span>
       <p class="statement-t">Systems your team owns, not a dependency on <i>me.</i></p>
@@ -843,6 +829,8 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
 
 <!-- ══ 09 · CONTACT ══════════════════════════ -->
 <section class="band dark" id="contact">
+  <img class="bg-layer" src="assets/image/bg-3.jpg" alt="" width="1680" height="945" loading="lazy">
+  <div class="bg-veil"></div>
   <div class="wrap">
     <div class="sec"><span class="label">Start here</span></div>
 
