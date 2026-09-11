@@ -11,9 +11,8 @@
 <meta property="og:description" content="Capacity, sustainability, and impact for nonprofit and mission-driven organizations.">
 <meta property="og:image" content="https://rakwel-10.github.io/StewardWorks/assets/image/hero.jpg">
 <meta property="og:url" content="https://rakwel-10.github.io/StewardWorks/">
-<link rel="icon" type="image/svg+xml" href="assets/image/favicon.svg">
-<link rel="icon" type="image/png" sizes="393x271" href="assets/image/SWC-Logo.png">
-<link rel="apple-touch-icon" href="assets/image/favicon.svg">
+<link rel="icon" type="image/jpeg" href="assets/image/swc-logo-color.jpg">
+<link rel="apple-touch-icon" href="assets/image/swc-logo-color.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -114,9 +113,18 @@ a{ color:inherit; }
 /* white transparent lockup — works on the tinted hero and the slate footer */
 .mark{ display:inline-flex; align-items:center; gap:.72rem; line-height:1; text-decoration:none; }
 .mark img{ display:block; width:auto; height:clamp(36px,4.2vw,48px); }
-/* supplied lockup is white; the header bar is white, so darken it there.
-   The footer keeps the white original on its slate ground. */
-.nav .mark img{ filter:brightness(0); opacity:.86; }
+/* Header shows the colour monogram, cropped from the full lockup:
+   a 375x290 window at 210,90 inside the 790x679 source. Its white
+   ground meets the white header bar, so the crop is invisible.
+   The footer keeps the white lockup for its slate ground. */
+.mark-icon{
+  position:relative; flex:none; overflow:hidden;
+  height:clamp(38px,4.4vw,50px); aspect-ratio:375/290;
+}
+.mark-icon img{
+  position:absolute; max-width:none; height:auto;
+  width:210.7%; left:-56%; top:-31%;
+}
 .mark-text{ display:flex; flex-direction:column; gap:.2rem; }
 .mark-text strong{
   font-family:var(--serif); font-weight:600; color:var(--slate);
@@ -508,7 +516,7 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
 
 <header class="nav">
   <div class="wrap nav-in">
-    <a class="mark" href="#top"><img src="assets/image/SWC-Logo.png" alt="" width="393" height="271"><span class="mark-text"><strong>StewardWorks</strong><em>Consulting</em></span></a>
+    <a class="mark" href="#top"><span class="mark-icon"><img src="assets/image/swc-logo-color.jpg" alt=""></span><span class="mark-text"><strong>StewardWorks</strong><em>Consulting</em></span></a>
     <nav aria-label="Primary">
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
