@@ -436,6 +436,48 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
   padding:.75rem 1.1rem; border-radius:4px; font-size:.75rem; font-weight:600; letter-spacing:.1em;
 }
 
+/* ── motion ───────────────────────────────
+   Subtle, CSS-only, and entirely opt-out. Everything lives inside
+   prefers-reduced-motion: no-preference, and the scroll-driven reveals
+   sit behind @supports so unsupporting browsers just render statically. */
+@media (prefers-reduced-motion: no-preference){
+
+  /* hero settles in once on load */
+  .hero-tag,.hero-h1,.hero-lede,.hero-cta{
+    animation:fade-up .85s cubic-bezier(.22,.7,.3,1) both;
+  }
+  .hero-h1{ animation-delay:.07s; }
+  .hero-lede{ animation-delay:.14s; }
+  .hero-cta{ animation-delay:.21s; }
+
+  /* parallax: the photo layer holds still while the section scrolls over it.
+     Desktop only - fixed attachment is ignored on iOS and janky on Android. */
+  @media (min-width:821px){
+    .statement,#contact{ background-attachment:scroll,fixed; }
+  }
+
+  @supports (animation-timeline: view()){
+    /* hero photograph drifts a little slower than the page */
+    .hero-img{
+      animation:drift linear both;
+      animation-timeline:view();
+      animation-range:cover 0% cover 100%;
+    }
+    /* content rises as it comes into view */
+    .h2,.lede,.prob,.card,.step,.note-card,.faq-i,
+    .who-body p,.portrait,.who-list,.also-i,
+    .statement-t,.statement-p,.partner-row,.form{
+      animation:rise linear both;
+      animation-timeline:view();
+      animation-range:entry 4% cover 28%;
+    }
+  }
+}
+
+@keyframes fade-up{ from{ opacity:0; transform:translateY(12px); } to{ opacity:1; transform:none; } }
+@keyframes rise{    from{ opacity:0; transform:translateY(16px); } to{ opacity:1; transform:none; } }
+@keyframes drift{   from{ transform:translateY(-2.5%) scale(1.06); } to{ transform:translateY(2.5%) scale(1.06); } }
+
 /* ── responsive ──────────────────────────── */
 @media (max-width:1000px){
   .ways{ grid-template-columns:1fr; }
