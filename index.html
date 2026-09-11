@@ -100,31 +100,37 @@ a{ color:inherit; }
 .gap{ margin-bottom:clamp(2.25rem,4.5vw,3.25rem); }
 
 /* ── header, sitting on the hero ─────────── */
-.nav{ position:absolute; top:0; left:0; right:0; z-index:60; }
+.nav{
+  position:sticky; top:0; z-index:60;
+  background:var(--white); border-bottom:1px solid var(--hair);
+}
 .nav .wrap{ max-width:none; }
 .nav-in{
   display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
-  min-height:84px; border-bottom:1px solid var(--sand-24);
+  min-height:84px;
 }
 /* white transparent lockup — works on the tinted hero and the slate footer */
 .mark{ display:inline-flex; align-items:center; gap:.72rem; line-height:1; text-decoration:none; }
 .mark img{ display:block; width:auto; height:clamp(36px,4.2vw,48px); }
+/* supplied lockup is white; the header bar is white, so darken it there.
+   The footer keeps the white original on its slate ground. */
+.nav .mark img{ filter:brightness(0); opacity:.86; }
 .mark-text{ display:flex; flex-direction:column; gap:.2rem; }
 .mark-text strong{
-  font-family:var(--serif); font-weight:600; color:var(--sand);
+  font-family:var(--serif); font-weight:600; color:var(--slate);
   font-size:clamp(1.02rem,1.5vw,1.28rem); letter-spacing:-.012em; line-height:1;
 }
 .mark-text em{
   font-style:normal; font-size:.58rem; font-weight:600; letter-spacing:.22em;
-  text-transform:uppercase; color:var(--sage-lite); line-height:1;
+  text-transform:uppercase; color:var(--sage-ink); line-height:1;
 }
 .nav-links{ display:flex; gap:2rem; list-style:none; margin:0; padding:0; }
 .nav-links a{
   font-size:.72rem; font-weight:600; letter-spacing:.13em; text-transform:uppercase;
-  text-decoration:none; color:var(--sand-86); padding-block:.4rem;
+  text-decoration:none; color:var(--taupe); padding-block:.4rem;
   border-bottom:1px solid transparent;
 }
-.nav-links a:hover{ color:var(--sand); border-bottom-color:var(--sage-lite); }
+.nav-links a:hover{ color:var(--slate); border-bottom-color:var(--sage); }
 
 /* ── buttons ─────────────────────────────── */
 .btn{
@@ -135,8 +141,8 @@ a{ color:inherit; }
   background:var(--ochre); color:var(--slate); border:1px solid var(--ochre);
 }
 .btn:hover{ background:var(--slate); border-color:var(--slate); color:var(--sand); }
-.btn-onimg{ background:transparent; color:var(--sand); border-color:var(--sand-86); }
-.btn-onimg:hover{ background:var(--sand); border-color:var(--sand); color:var(--slate); }
+.btn-onimg{ background:transparent; color:var(--slate); border-color:var(--slate-20); }
+.btn-onimg:hover{ background:var(--slate); border-color:var(--slate); color:var(--sand); }
 .btn-sm{ padding:.7rem 1.2rem; font-size:.7rem; }
 .btn-ondark:hover{ background:var(--sand); border-color:var(--sand); color:var(--slate); }
 .btn-row{ display:flex; flex-wrap:wrap; gap:.8rem; }
@@ -161,27 +167,27 @@ a{ color:inherit; }
 /* ── 01 · hero ───────────────────────────── */
 .hero{
   position:relative; display:flex; align-items:center;
-  min-height:clamp(760px,100vh,1120px); background:var(--slate); overflow:hidden;
+  min-height:clamp(760px,100vh,1120px); background:var(--white); overflow:hidden;
 }
 .hero-img{ position:absolute; inset:-14% 0; width:100%; height:128%; object-fit:cover; object-position:center; }
 .hero-veil{
   position:absolute; inset:0;
-  background:linear-gradient(90deg, rgba(44,62,76,.8) 0%, rgba(44,62,76,.1) 100%);
+  background:none;
 }
 /* full-bleed like the header, so the text lines up with the logo */
 .hero .wrap{ max-width:none; }
 .hero-in{ position:relative; padding-block:clamp(3rem,7vw,5.5rem); padding-inline:clamp(1.5rem,7vw,7.5rem); width:100%; }
-.hero-tag{ margin:0 0 1.05rem; color:var(--sage-lite); }
+.hero-tag{ margin:0 0 1.05rem; color:var(--sage-ink); }
 .hero-h1{
-  font-family:var(--serif); font-weight:600; color:var(--sand);
+  font-family:var(--serif); font-weight:600; color:var(--slate);
   font-size:clamp(2.55rem,1.7rem + 3.8vw,4.5rem);
-  line-height:1.02; letter-spacing:-.032em; margin:0 0 1.05rem; text-shadow:0 2px 30px rgba(12,18,24,.55);
+  line-height:1.02; letter-spacing:-.032em; margin:0 0 1.05rem;
   max-width:19ch; text-wrap:balance;
 }
-.hero-h1 i{ font-style:italic; font-weight:400; color:var(--sage-lite); }
+.hero-h1 i{ font-style:italic; font-weight:400; color:var(--sage-ink); }
 .hero-lede{
   font-size:clamp(1.04rem,.98rem + .3vw,1.2rem); font-weight:300;
-  line-height:1.55; color:var(--sand-86); max-width:52ch; margin:0; text-shadow:0 1px 20px rgba(12,18,24,.55);
+  line-height:1.55; color:var(--taupe); max-width:52ch; margin:0;
 }
 .hero-cta{ display:flex; flex-wrap:wrap; gap:.7rem; margin-top:1.8rem; }
 
@@ -436,7 +442,7 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
 
 /* ── a11y ────────────────────────────────── */
 :focus-visible{ outline:2px solid var(--ochre-ink); outline-offset:3px; }
-.dark :focus-visible,.foot :focus-visible,.hero :focus-visible,.nav :focus-visible{ outline-color:var(--sage-lite); }
+.dark :focus-visible,.foot :focus-visible{ outline-color:var(--sage-lite); }
 .skip{ position:absolute; left:-9999px; }
 .skip:focus{
   left:1rem; top:1rem; z-index:99; background:var(--slate); color:var(--sand);
@@ -491,27 +497,27 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="mark" href="#top"><img src="assets/image/SWC-Logo.png" alt="" width="393" height="271"><span class="mark-text"><strong>StewardWorks</strong><em>Consulting</em></span></a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-sm" href="#contact">Start assessment</a>
+  </div>
+</header>
+
 <main id="main">
 
 <!-- ══ 01 · HERO, with the header on it ══════ -->
 <section class="hero" id="top">
-  <img class="hero-img" src="assets/image/hero.jpg" alt="" width="1680" height="945">
+  <img class="hero-img" src="assets/image/hero2.jpg" alt="" width="1440" height="810">
   <div class="hero-veil"></div>
-
-  <header class="nav">
-    <div class="wrap nav-in">
-      <a class="mark" href="#top"><img src="assets/image/SWC-Logo.png" alt="" width="393" height="271"><span class="mark-text"><strong>StewardWorks</strong><em>Consulting</em></span></a>
-      <nav aria-label="Primary">
-        <ul class="nav-links">
-          <li><a href="#services">Services</a></li>
-          <li><a href="#approach">Approach</a></li>
-          <li><a href="#packages">Packages</a></li>
-          <li><a href="#about">About</a></li>
-        </ul>
-      </nav>
-      <a class="btn btn-sm" href="#contact">Start assessment</a>
-    </div>
-  </header>
 
   <div class="wrap hero-in">
     <p class="label hero-tag">Nonprofit &amp; mission-driven consulting</p>
