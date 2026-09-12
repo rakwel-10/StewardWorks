@@ -111,7 +111,7 @@ a{ color:inherit; }
   display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
   min-height:84px;
 }
-/* white transparent lockup — works on the tinted hero and the slate footer */
+/* footer lockup sizing; the header uses .mark-icon below */
 .mark{ display:inline-flex; align-items:center; gap:.72rem; line-height:1; text-decoration:none; }
 .mark img{ display:block; width:auto; height:clamp(36px,4.2vw,48px); }
 /* Header shows the colour monogram, cropped from the full lockup:
@@ -176,27 +176,29 @@ a{ color:inherit; }
 /* ── 01 · hero ───────────────────────────── */
 .hero{
   position:relative; display:flex; align-items:center;
-  min-height:clamp(760px,100vh,1120px); background:var(--white); overflow:hidden;
+  min-height:clamp(760px,100vh,1120px); background:var(--slate); overflow:hidden;
 }
 .hero-img{ position:absolute; inset:-14% 0; width:100%; height:128%; object-fit:cover; object-position:center; }
 .hero-veil{
   position:absolute; inset:0;
-  background:none;
+  background:linear-gradient(90deg, rgba(44,62,76,.8) 0%, rgba(44,62,76,.1) 100%);
 }
 /* full-bleed like the header, so the text lines up with the logo */
 .hero .wrap{ max-width:none; }
 .hero-in{ position:relative; padding-block:clamp(3rem,7vw,5.5rem); padding-inline:clamp(1.5rem,7vw,7.5rem); width:100%; }
-.hero-tag{ margin:0 0 1.05rem; color:var(--sage-ink); }
+.hero-tag{ margin:0 0 1.05rem; color:var(--sage-lite); }
 .hero-h1{
-  font-family:var(--serif); font-weight:600; color:var(--slate);
+  font-family:var(--serif); font-weight:600; color:var(--sand);
   font-size:clamp(2.55rem,1.7rem + 3.8vw,4.5rem);
   line-height:1.02; letter-spacing:-.032em; margin:0 0 1.05rem;
+  text-shadow:0 2px 30px rgba(12,18,24,.55);
   max-width:19ch; text-wrap:balance;
 }
-.hero-h1 i{ font-style:italic; font-weight:400; color:var(--sage-ink); }
+.hero-h1 i{ font-style:italic; font-weight:400; color:var(--sage-lite); }
 .hero-lede{
   font-size:clamp(1.04rem,.98rem + .3vw,1.2rem); font-weight:300;
-  line-height:1.55; color:var(--taupe); max-width:52ch; margin:0;
+  line-height:1.55; color:var(--sand-86); max-width:52ch; margin:0;
+  text-shadow:0 1px 20px rgba(12,18,24,.55);
 }
 .hero-cta{ display:flex; flex-wrap:wrap; gap:.7rem; margin-top:1.8rem; }
 
@@ -456,7 +458,7 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
 
 /* ── a11y ────────────────────────────────── */
 :focus-visible{ outline:2px solid var(--ochre-ink); outline-offset:3px; }
-.dark :focus-visible,.foot :focus-visible{ outline-color:var(--sage-lite); }
+.dark :focus-visible,.foot :focus-visible,.hero :focus-visible{ outline-color:var(--sage-lite); }
 .skip{ position:absolute; left:-9999px; }
 .skip:focus{
   left:1rem; top:1rem; z-index:99; background:var(--slate); color:var(--sand);
@@ -529,7 +531,7 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
 
 <!-- ══ 01 · HERO, with the header on it ══════ -->
 <section class="hero" id="top">
-  <img class="hero-img" src="assets/image/hero2.jpg" alt="" width="1440" height="810">
+  <img class="hero-img" src="assets/image/hero.jpg" alt="" width="1680" height="945">
   <div class="hero-veil"></div>
 
   <div class="wrap hero-in">
