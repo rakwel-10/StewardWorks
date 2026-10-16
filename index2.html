@@ -83,26 +83,16 @@ a{ color:inherit; }
 
 /* ── hero: headline left, photo right ── */
 .hero{ background:var(--blush); padding:clamp(2rem,5vw,3.5rem) 0 clamp(3.5rem,7vw,5.5rem); }
-.hero-in{ display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:clamp(2rem,5vw,4rem); align-items:start; }
-/* The text column runs 40vh taller than the photo. That extra length is
-   the scroll distance over which the photo stays pinned while the
-   headline moves up past it. */
-.hero{ --photo-h:min(680px, calc(100vh - 3rem)); }
-.hero-text{
-  display:flex; flex-direction:column; justify-content:flex-start;
-  min-height:calc(var(--photo-h) + 40vh);
-  padding-top:clamp(3rem, calc(var(--photo-h) / 2 - 12rem), 12rem);
-}
+.hero-in{ display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:clamp(2rem,5vw,4rem); align-items:stretch; }
+.hero-text{ display:flex; flex-direction:column; }
 .h1{ font-size:clamp(2.5rem,1.7rem + 3.2vw,4.1rem); line-height:1.08; letter-spacing:-.018em; }
 .hero-lede{ margin:1.4rem 0 1.8rem; max-width:46ch; }
 .hero-cta{ display:flex; flex-wrap:wrap; gap:.7rem; }
-/* sticky beside the headline: it pins only for as long as the text
-   column beside it is taller than the photo */
-.hero-photo{
-  position:sticky; top:1.5rem;
-  height:var(--photo-h); border-radius:var(--r); overflow:hidden;
-}
-.hero-photo img{ width:100%; height:100%; object-fit:cover; object-position:46% center; }
+/* two photo tiles under the buttons, pushed to the column's foot */
+.tiles{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(1rem,3vw,2.25rem); margin-top:auto; padding-top:clamp(2.5rem,5vw,3.5rem); max-width:440px; }
+.tiles img{ width:100%; aspect-ratio:5/6; object-fit:cover; border-radius:var(--r); }
+.hero-photo{ position:relative; border-radius:var(--r); overflow:hidden; min-height:520px; }
+.hero-photo img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:46% center; }
 
 /* ── what you keep: slate panel, statement left, team photo right ── */
 .keep{
@@ -127,6 +117,9 @@ a{ color:inherit; }
 /* ── our process: intro left, what-to-expect notes right ── */
 .ways{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(2rem,6vw,5rem); align-items:start; }
 .ways .pill{ margin-top:1.75rem; }
+.ways-img{ width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:var(--r); margin-top:clamp(2rem,4vw,2.75rem); }
+/* thin rule between neighbouring sections on the same ground */
+.divider{ border:0; border-top:1px solid var(--line); margin:0; }
 .notes{ display:grid; gap:.8rem; }
 .notes-h{ font-family:var(--serif); font-weight:400; color:var(--ink); font-size:1.3rem; margin:0 0 .4rem; }
 .note{ background:var(--blush); border-radius:var(--r); padding:1.15rem 1.3rem; }
@@ -265,8 +258,8 @@ a{ color:inherit; }
 /* ── responsive ──────────────────────────── */
 @media (max-width:960px){
   .hero-in,.about-top,.faq-grid,.contact-in{ grid-template-columns:1fr; }
-  .hero-text{ min-height:0; padding-top:0; padding-bottom:2.5rem; }
-  .hero-photo{ position:relative; top:auto; height:420px; }
+  .hero-photo{ min-height:420px; }
+  .tiles{ max-width:none; }
   .keep,.ways{ grid-template-columns:1fr; }
   .keep-art{ min-height:280px; }
   .portrait{ max-width:280px; }
@@ -319,6 +312,10 @@ a{ color:inherit; }
         <a class="pill" href="#contact">Start assessment today <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></a>
         <!-- needs the PDF at this path before it will work -->
         <a class="pill pill-line" href="assets/StewardWorks-Info-Kit.pdf" download>Download info kit <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2v7M3 6l3 3 3-3M2 10.5h8"/></svg></a>
+      </div>
+      <div class="tiles">
+        <img src="assets/image/expertise-4.jpg" alt="" width="1600" height="900">
+        <img src="assets/image/our-process.jpg" alt="" width="1440" height="810">
       </div>
     </div>
 
@@ -476,14 +473,17 @@ a{ color:inherit; }
   </div>
 </section>
 
+<div class="wrap"><hr class="divider"></div>
+
 <!-- ══ OUR PROCESS ═══════════════════════════ -->
-<section class="sec" id="process" style="padding-top:0">
+<section class="sec" id="process">
   <div class="wrap ways">
     <div>
       <span class="k">Our process</span>
       <h2 class="h2">Ways to work together.</h2>
       <p class="body-s">Every engagement is scoped to your organization. The capacity assessment is the usual starting point.</p>
       <a class="pill" href="mailto:jaina.reed@gmail.com?subject=Assessment%20request%20%E2%80%94%20StewardWorks%20Consulting">Start assessment today <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></a>
+      <img class="ways-img" src="assets/image/our-process.jpg" alt="" width="1440" height="810" loading="lazy">
     </div>
     <div class="notes">
       <h3 class="notes-h">What to expect</h3>
@@ -585,8 +585,10 @@ a{ color:inherit; }
   </div>
 </section>
 
+<div class="wrap"><hr class="divider"></div>
+
 <!-- ══ CONTACT ═══════════════════════════════ -->
-<section class="sec" id="contact" style="padding-top:0">
+<section class="sec" id="contact">
   <div class="wrap contact-in">
     <div>
       <span class="k">Start here</span>
