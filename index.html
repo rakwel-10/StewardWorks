@@ -175,9 +175,10 @@ a{ color:inherit; }
   font-size:.7rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
   text-decoration:none; white-space:nowrap;
   padding:.72rem 1.2rem; border-radius:4px;
-  background:var(--ochre); color:var(--white); border:1px solid var(--ochre);
+  background:var(--slate); color:var(--white); border:1px solid var(--slate);
 }
-.tlink:hover{ background:var(--slate); border-color:var(--slate); color:var(--white); }
+/* service buttons are slate blue; hover lifts to brand ochre */
+.tlink:hover{ background:var(--ochre); border-color:var(--ochre); color:var(--white); }
 
 /* shared parallax layer: an image that can be transformed, plus its veil.
    Overscanned 14% top and bottom so the travel never reveals an edge. */
@@ -260,7 +261,8 @@ a{ color:inherit; }
   position:relative; padding-left:1.3rem; padding-block:.4rem;
   font-size:.9rem; font-weight:400; line-height:1.5; color:var(--taupe);
 }
-.spec li::before{ content:"—"; position:absolute; left:0; color:var(--sage); }
+/* small slate square as the list marker */
+.spec li::before{ content:""; position:absolute; left:.1rem; top:calc(.4rem + .75em - .19rem); width:.38rem; height:.38rem; background:var(--slate); }
 .card .tlink{ align-self:flex-start; }
 /* a list followed by an add-on list: hand the stretch to the last one
    so the button still sits at the card's foot */
@@ -406,6 +408,8 @@ a{ color:inherit; }
 .faq-i[open] summary::after{ content:"\2013"; }
 .faq-i summary:hover{ color:var(--sage-ink); }
 .faq-a{ margin:0; padding:0 3rem 1.7rem 0; max-width:68ch; font-weight:300; }
+.faq-a p{ margin:0; }
+.faq-a .spec{ margin:.8rem 0 0; }
 
 /* ── 08 · about ──────────────────────────── */
 .who{ display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:clamp(2rem,5vw,4.5rem); align-items:start; }
@@ -559,12 +563,12 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
     <a class="mark" href="#top"><span class="mark-icon"><img src="assets/image/swc-logo-color.jpg" alt=""></span><span class="mark-text"><strong>StewardWorks</strong><em>Consulting</em></span></a>
     <nav aria-label="Primary">
       <ul class="nav-links">
+        <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#approach">Approach</a></li>
-        <li><a href="#about">About</a></li>
       </ul>
     </nav>
-    <a class="btn btn-sm" href="#contact">Start assessment</a>
+    <a class="btn btn-sm" href="#contact">Let&#8217;s connect</a>
   </div>
 </header>
 
@@ -580,7 +584,7 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
     <h1 class="hero-h1">Turn bold ideas into <i>structured</i> programs.</h1>
     <p class="hero-lede">We partner with nonprofit and mission-driven organizations to design strong programs, build internal capacity, and implement operational systems that support long-term sustainability.</p>
     <div class="hero-cta">
-      <a class="btn" href="#contact">Start assessment today</a>
+      <a class="btn" href="#contact">Let&#8217;s connect</a>
       <a class="btn" href="#services">See services</a>
     </div>
   </div>
@@ -595,7 +599,6 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
       <div>
         <h2 class="h2">The mission is clear. The systems holding it up often aren&#8217;t.</h2>
         <div class="intro-body">
-          <p>Funding arrives before the operating plan does. Programs get built in the margins of other work.</p>
           <p>StewardWorks brings the structure, strategy plans, workflows, documentation, and project discipline so the work can grow without breaking.</p>
         </div>
       </div>
@@ -605,7 +608,7 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
     <div class="probs">
       <div class="prob">
         <span class="label">Starting something new</span>
-        <h3 class="prob-h">A funded idea, no blueprint</h3>
+        <h3 class="prob-h">You know what you want to do. Now, how will you do it?</h3>
         <p class="prob-p">The project is approved. What it still needs is a plan, a timeline, a budget, and someone to execute it.</p>
       </div>
       <div class="prob">
@@ -860,9 +863,9 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
     <div class="ways">
       <div>
         <h2 class="h2">Ways to work together.</h2>
-        <p class="lede">Every engagement is scoped to your organization. The capacity assessment is the usual starting point.</p>
+        <p class="lede">Every engagement is tailored to you!</p>
         <div class="btn-row" style="margin-top:clamp(1.75rem,3.5vw,2.5rem)">
-          <a class="btn" href="mailto:jaina.reed@gmail.com?subject=Assessment%20request%20%E2%80%94%20StewardWorks%20Consulting">Start assessment today</a>
+          <a class="btn" href="mailto:jaina.reed@gmail.com?subject=Let%E2%80%99s%20connect%20%E2%80%94%20StewardWorks%20Consulting">Let&#8217;s connect</a>
         </div>
         <img class="ways-img" src="assets/image/our-process.jpg" alt="" width="1440" height="810" loading="lazy">
       </div>
@@ -872,17 +875,17 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
 
         <div class="note-card">
           <p class="note-k">Where it starts</p>
-          <p class="note-p">Most engagements open with a capacity assessment, so the work that follows targets the real gaps rather than the obvious ones.</p>
+          <p class="note-p">We typically begin with a conversation to learn about your organization, understand your goals, and how we can best support your work.</p>
         </div>
 
         <div class="note-card">
-          <p class="note-k">How scope is set</p>
-          <p class="note-p">Scope follows the size of the programme, the timeline you are working to, and what your team can carry alongside its existing work.</p>
+          <p class="note-k">How scope is determined</p>
+          <p class="note-p">The scope of each engagement is based on the size of the project, your timeline, and what your team can realistically manage alongside its existing work.</p>
         </div>
 
         <div class="note-card">
-          <p class="note-k">Still working it out</p>
-          <p class="note-p">A finished brief is not a prerequisite. Bring the situation as it stands and we will shape the engagement from there.</p>
+          <p class="note-k">Bring the challenge, and we&#8217;ll find the way forward</p>
+          <p class="note-p">You can come to us with an idea, a challenge, or a work in progress. We&#8217;ll help you clarify the path forward and determine the right support.</p>
         </div>
       </div>
     </div>
@@ -915,8 +918,15 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
       </details>
 
       <details class="faq-i">
-        <summary>Do you help with hiring?</summary>
-        <p class="faq-a">Yes — strategic talent search and placement, informed by a decade of nonprofit program management and recruiting.</p>
+        <summary>Do you help with event planning support?</summary>
+        <div class="faq-a">
+          <p>Yes, StewardWorks is available for event planning support, including:</p>
+          <ul class="spec">
+            <li>General logistics</li>
+            <li>3rd-party vendor management</li>
+            <li>Venue management</li>
+          </ul>
+        </div>
       </details>
 
     </div>
@@ -945,7 +955,7 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
 
       <div class="who-body">
         <h2 class="h2">A fractional partner for changemakers.</h2>
-        <p>Jaina Reed Thompson founded StewardWorks Consulting to strengthen the capacity, sustainability, and impact of nonprofit and mission-driven organizations — so they can focus on their mission and the communities they serve.</p>
+        <p>Jaina Reed Thompson founded StewardWorks Consulting to strengthen the capacity, sustainability, and impact of nonprofit and mission-driven organizations, so they can focus on their mission and the communities they serve.</p>
         <p>She brings more than a decade in nonprofit program management, program process improvement, and organizational development, pairing strategic vision with hands-on delivery across program development and implementation, capacity building, operational and administrative support, project management, and event planning and execution.</p>
         <p>Whether the task is building a new program, strengthening organizational systems, managing a project, or providing strategic operational support, the aim is the same: bring the structure, insight, and momentum that move the work forward.</p>
       </div>
@@ -1016,7 +1026,7 @@ a.contact-v:hover{ border-bottom-color:var(--sage-lite); }
           <textarea name="message" rows="5" placeholder="A sentence or two about the program, the timeline, and what&#8217;s getting in the way." required></textarea>
         </label>
 
-        <button class="btn" type="submit">Start assessment today</button>
+        <button class="btn" type="submit">Let&#8217;s connect</button>
       </form>
     </div>
   </div>
